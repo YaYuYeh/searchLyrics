@@ -9,21 +9,28 @@
 /* Begin PBXBuildFile section */
 		8409D15228D6DAEA0046C5BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409D15128D6DAEA0046C5BE /* AppDelegate.swift */; };
 		8409D15428D6DAEA0046C5BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409D15328D6DAEA0046C5BE /* SceneDelegate.swift */; };
-		8409D15628D6DAEA0046C5BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409D15528D6DAEA0046C5BE /* ViewController.swift */; };
 		8409D15928D6DAEA0046C5BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8409D15728D6DAEA0046C5BE /* Main.storyboard */; };
 		8409D15B28D6DAEB0046C5BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8409D15A28D6DAEB0046C5BE /* Assets.xcassets */; };
 		8409D15E28D6DAEB0046C5BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8409D15C28D6DAEB0046C5BE /* LaunchScreen.storyboard */; };
+		8409D16628D6E2610046C5BE /* Lyrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409D16528D6E2610046C5BE /* Lyrics.swift */; };
+		8409D16828D6E28C0046C5BE /* ITunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409D16728D6E28C0046C5BE /* ITunes.swift */; };
+		8409D16A28D6E2980046C5BE /* SearchMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409D16928D6E2980046C5BE /* SearchMusicViewController.swift */; };
+		8409D16D28D6EB410046C5BE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8409D16C28D6EB410046C5BE /* Kingfisher */; };
+		841A0D9428D7080F00000352 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A0D9328D7080F00000352 /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8409D14E28D6DAEA0046C5BE /* searchMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = searchMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8409D15128D6DAEA0046C5BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8409D15328D6DAEA0046C5BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8409D15528D6DAEA0046C5BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8409D15828D6DAEA0046C5BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8409D15A28D6DAEB0046C5BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8409D15D28D6DAEB0046C5BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8409D15F28D6DAEB0046C5BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8409D16528D6E2610046C5BE /* Lyrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lyrics.swift; sourceTree = "<group>"; };
+		8409D16728D6E28C0046C5BE /* ITunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunes.swift; sourceTree = "<group>"; };
+		8409D16928D6E2980046C5BE /* SearchMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMusicViewController.swift; sourceTree = "<group>"; };
+		841A0D9328D7080F00000352 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8409D16D28D6EB410046C5BE /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +66,10 @@
 			children = (
 				8409D15128D6DAEA0046C5BE /* AppDelegate.swift */,
 				8409D15328D6DAEA0046C5BE /* SceneDelegate.swift */,
-				8409D15528D6DAEA0046C5BE /* ViewController.swift */,
+				8409D16928D6E2980046C5BE /* SearchMusicViewController.swift */,
+				841A0D9328D7080F00000352 /* ResultViewController.swift */,
+				8409D16528D6E2610046C5BE /* Lyrics.swift */,
+				8409D16728D6E28C0046C5BE /* ITunes.swift */,
 				8409D15728D6DAEA0046C5BE /* Main.storyboard */,
 				8409D15A28D6DAEB0046C5BE /* Assets.xcassets */,
 				8409D15C28D6DAEB0046C5BE /* LaunchScreen.storyboard */,
@@ -83,6 +94,9 @@
 			dependencies = (
 			);
 			name = searchMusic;
+			packageProductDependencies = (
+				8409D16C28D6EB410046C5BE /* Kingfisher */,
+			);
 			productName = searchMusic;
 			productReference = 8409D14E28D6DAEA0046C5BE /* searchMusic.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +125,9 @@
 				Base,
 			);
 			mainGroup = 8409D14528D6DAEA0046C5BE;
+			packageReferences = (
+				8409D16B28D6EB410046C5BE /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 8409D14F28D6DAEA0046C5BE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,9 +155,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8409D15628D6DAEA0046C5BE /* ViewController.swift in Sources */,
+				8409D16A28D6E2980046C5BE /* SearchMusicViewController.swift in Sources */,
+				8409D16628D6E2610046C5BE /* Lyrics.swift in Sources */,
 				8409D15228D6DAEA0046C5BE /* AppDelegate.swift in Sources */,
 				8409D15428D6DAEA0046C5BE /* SceneDelegate.swift in Sources */,
+				8409D16828D6E28C0046C5BE /* ITunes.swift in Sources */,
+				841A0D9428D7080F00000352 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +378,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8409D16B28D6EB410046C5BE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8409D16C28D6EB410046C5BE /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8409D16B28D6EB410046C5BE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8409D14628D6DAEA0046C5BE /* Project object */;
 }

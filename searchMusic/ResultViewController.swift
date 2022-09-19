@@ -22,7 +22,7 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var playerTitleLbl: UILabel!
     @IBOutlet weak var playerAuthorLbl: UILabel!
     var lyricsResponse:LyricsResponse?
-    var iTunesResponse:ITunesResponse?
+    var iTunesArray:[ITunes]?
     var song:String!
     var player:AVPlayer?
     var isPlay = false
@@ -77,13 +77,13 @@ class ResultViewController: UIViewController {
                         let decoder = JSONDecoder()
                         decoder.dateDecodingStrategy = .iso8601
                         do{
-                            self.iTunesResponse = try decoder.decode(ITunesResponse.self, from: data)
-                            let iTunes = self.iTunesResponse?.results
+                            let iTunesResponse = try decoder.decode(ITunesResponse.self, from: data)
+                            self.iTunesArray = iTunesResponse.results
                             let outputFormatter = DateFormatter()
                             outputFormatter.dateFormat = "MMMM d, yyyy"
                             
                             DispatchQueue.main.async {
-                                if let date = iTunes?[0].releaseDate{
+                                if let date = self.iTunesArray?[0].releaseDate{
                                     let dateStr = outputFormatter.string(from: (date))
                                     self.releaseDateLbl.text = dateStr
                                 }
@@ -124,7 +124,7 @@ class ResultViewController: UIViewController {
         isPlay.toggle()
         if isPlay == true{
             sender.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-            if let url = iTunesResponse?.results?[0].previewUrl
+            if let url = iTunesArray?[0].previewUrl
             {
                 player = AVPlayer(url: url)
                 player?.play()

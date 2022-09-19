@@ -14,7 +14,7 @@ class SearchMusicViewController: UIViewController{
         super.viewDidLoad()
     }
     
-    //透過判斷來控制segue是否可使用:此例searchBar若為nil，則不能使用
+    //透過判斷來控制segue是否可使用:此例searchBar若為nil，則不能使用(錯誤做法)
 //    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
 //        if let _ = searchBar.text {   此為判斷是否為nil
 //        if searchBar.text != nil{
@@ -45,7 +45,7 @@ class SearchMusicViewController: UIViewController{
     
 extension SearchMusicViewController:UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if searchBar.text != ""{
+        if searchBar.text != "" {
             performSegue(withIdentifier: "ResultViewController", sender: nil)
         }
         view.endEditing(true)

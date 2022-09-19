@@ -35,10 +35,22 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
         gradientBackground()
         fetchLyrics(name: song)
+        searchIssue() //??
+    }
+    
+    //???
+    func searchIssue(){
+        if iTunesArray == []{
+            let alert = UIAlertController(title: "Not Found", message: "Return to the previous page.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                self.dismiss(animated: true)
+            }
+        }
     }
     
     //設定漸層圖片
     func gradientBackground(){
+        //建立顯示漸層顏色的 CAGradientLayer 物件
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = topBackground.bounds
         let startColor = CGColor(red: 85/255, green: 110/255, blue: 170/255, alpha: 1)
@@ -155,13 +167,4 @@ class ResultViewController: UIViewController {
         }
     }
 }
-
-//searchBar
-extension ResultViewController:UISearchBarDelegate{
-    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        fetchLyrics(name: searchBar.text ?? "")
-        fetchITunes(name: searchBar.text ?? "")
-    }
-}
-
 

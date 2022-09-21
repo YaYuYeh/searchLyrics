@@ -47,7 +47,9 @@ extension SearchMusicViewController:UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if searchBar.text != "" {
             performSegue(withIdentifier: "ResultViewController", sender: nil)
+            
         }
+        //按下return後收鍵盤
         view.endEditing(true)
     }
 }

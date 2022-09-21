@@ -11,6 +11,8 @@ struct ITunesResponse:Decodable{
 }
 
 struct ITunes:Decodable, Equatable{
+    //歌名
+    var trackName:String
     //歌手
     var artistName:String
     //音樂片段播放

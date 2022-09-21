@@ -32,8 +32,7 @@ class ResultViewController: UIViewController {
     //宣告iTunes正確資料的索引值
     var index = 0
     var indexIsFound = false
-    var lyricsIsOK = false
-    var iTunesIsOK = false
+
     
 
     override func viewDidLoad() {
@@ -41,7 +40,7 @@ class ResultViewController: UIViewController {
         backAction()
         gradientBackground()
         fetchLyrics(name: song)
-        //fetchITunes(name: song)
+        fetchITunes(name: song)
 //        DispatchQueue.main.async {
         sleep(5)
         checkInfo()
@@ -57,37 +56,28 @@ class ResultViewController: UIViewController {
     }
     
     func checkInfo(){
-        print("資料準備中")
         //迴圈判斷iTunes歌手是否與lyrics歌手相同，來確認是否為同一首歌
-        if lyricsIsOK && iTunesIsOK{
-            print("資料準備好了，開始比對資料")
-            if iTunesArray.isEmpty == false{
-                for i in 0...(iTunesArray.count-1){
-                    print("找到的index\(index)")
-                    if iTunesArray[i].trackName != "",
-                       iTunesArray[i].artistName == lyricsResponse!.author{
-                           index = i
-                           indexIsFound = true
+        print("開始比對資料")
+        if iTunesArray.isEmpty == false{
+            for i in 0...(iTunesArray.count-1){
+                print("找到的index\(index)")
+                if iTunesArray[i].trackName != "",
+                   iTunesArray[i].artistName == lyricsResponse!.author{
+                       index = i
+                       indexIsFound = true
 
-                           failedBackgroundImg.isHidden = true
-                           break
-                    }
+                       failedBackgroundImg.isHidden = true
+                       break
                 }
-                if indexIsFound == false{
-                    print("找不到index")
-                    DispatchQueue.main.async {
-                        self.searchIssue()
-                    }
-                }
-            }else{
-                print("iTunes是空陣列")
+            }
+            if indexIsFound == false{
+                print("找不到index")
                 DispatchQueue.main.async {
                     self.searchIssue()
                 }
             }
-        }
-        else{
-            print("歌詞或iTunes抓不到資料")
+        }else{
+            print("iTunes是空陣列")
             DispatchQueue.main.async {
                 self.searchIssue()
             }
@@ -149,9 +139,8 @@ class ResultViewController: UIViewController {
                                 //更新lyricsAPI資料UI
                                 self.updateLyrics()
                             }
-                            self.lyricsIsOK = true
                             print("歌詞抓完了:\(String(describing: self.lyricsResponse))")
-                            self.fetchITunes(name: self.song)
+                            //self.fetchITunes(name: self.song)
                         }catch{
                             print(error)
                         }
@@ -174,8 +163,7 @@ class ResultViewController: UIViewController {
                         do{
                             let iTunesResponse = try decoder.decode(ITunesResponse.self, from: data)
                             self.iTunesArray = iTunesResponse.results
-                            
-                            self.iTunesIsOK = true
+
                             
                             print("iTunes抓完了\(self.iTunesArray)")
 //                            sleep(5)

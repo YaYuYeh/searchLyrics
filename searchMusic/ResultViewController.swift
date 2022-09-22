@@ -33,15 +33,12 @@ class ResultViewController: UIViewController {
     var index = 0
     var indexIsFound = false
 
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         backAction()
         gradientBackground()
         fetchLyrics(name: song)
         fetchITunes(name: song)
-//        DispatchQueue.main.async {
         sleep(5)
         checkInfo()
         musicEnd()
@@ -49,11 +46,14 @@ class ResultViewController: UIViewController {
     
     
     func backAction(){
-        navigationItem.backAction = UIAction(handler: { _ in
+        navigationItem.backAction = UIAction(handler: {
+            _
+            in
             self.player?.pause()
             self.navigationController?.popViewController(animated: true)
         })
     }
+    
     
     func checkInfo(){
         //迴圈判斷iTunes歌手是否與lyrics歌手相同，來確認是否為同一首歌
@@ -61,30 +61,24 @@ class ResultViewController: UIViewController {
         if iTunesArray.isEmpty == false{
             for i in 0...(iTunesArray.count-1){
                 print("找到的index\(index)")
-                if iTunesArray[i].trackName != "",
-                   iTunesArray[i].artistName == lyricsResponse!.author{
-                       index = i
-                       indexIsFound = true
-
-                       failedBackgroundImg.isHidden = true
-                       break
+                //if iTunesArray[i].trackName != "",
+                if iTunesArray[i].artistName == lyricsResponse!.author{
+                    index = i
+                    indexIsFound = true
+                    failedBackgroundImg.isHidden = true
+                    break
                 }
             }
             if indexIsFound == false{
                 print("找不到index")
-                DispatchQueue.main.async {
-                    self.searchIssue()
-                }
+                self.searchIssue()
             }
         }else{
             print("iTunes是空陣列")
-            DispatchQueue.main.async {
                 self.searchIssue()
-            }
         }
     }
 
-    
     
     //比對完成後若沒有相符的資料，跳alert並回到搜尋頁面
     func searchIssue(){
@@ -101,13 +95,14 @@ class ResultViewController: UIViewController {
     
     //音樂停止時
     func musicEnd(){
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: .main) { _ in
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: .main) {
+            _
+            in
             print("歌曲播放完畢")
             self.playerButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
             self.isPlay = false
         }
     }
-    
     
     
     //設定漸層圖片
@@ -120,6 +115,7 @@ class ResultViewController: UIViewController {
         gradientLayer.colors = [startColor, endColor]
         topBackground.layer.addSublayer(gradientLayer)
     }
+    
     
     //抓lyricsAPI資料
     func fetchLyrics(name:String){
@@ -150,6 +146,7 @@ class ResultViewController: UIViewController {
         }
     }
     
+    
     //抓iTunesAPI資料(發布日期、音樂)
     func fetchITunes(name:String){
         if let urlSTr = "https://itunes.apple.com/search?term=\(name)&media=music".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed){
@@ -163,21 +160,13 @@ class ResultViewController: UIViewController {
                         do{
                             let iTunesResponse = try decoder.decode(ITunesResponse.self, from: data)
                             self.iTunesArray = iTunesResponse.results
-
-                            
                             print("iTunes抓完了\(self.iTunesArray)")
-//                            sleep(5)
-//                            self.checkInfo()
 
-                            
                             let outputFormatter = DateFormatter()
                             //設定時間顯示的格式
                             outputFormatter.dateFormat = "MMMM d, yyyy"
                             print("bbb")
-                            //searchIssue()
-                            
-                            
-                            
+
                             DispatchQueue.main.async {
                                 if self.iTunesArray.isEmpty == false {
                                     let date = self.iTunesArray[self.index].releaseDate
@@ -206,7 +195,7 @@ class ResultViewController: UIViewController {
         playerTitleLbl.text = lyricsResponse?.title?.capitalized
         playerAuthorLbl.text = lyricsResponse?.author
     }
-
+    
     
     //前往歌詞網頁
     @IBAction func showWeb(_ sender: Any) {
@@ -216,12 +205,12 @@ class ResultViewController: UIViewController {
         }
     }
     
+    
     //播放&暫停音樂
     @IBAction func clickPlay(_ sender: UIButton) {
         isPlay.toggle()
         if isPlay == true{
             sender.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-            //searchIssue()
             let url = iTunesArray[index].previewUrl
             player = AVPlayer(url: url)
             player?.play()

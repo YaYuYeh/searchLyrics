@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Kingfisher
+//import Kingfisher
 import SafariServices
 import AVFoundation
 
@@ -184,14 +184,32 @@ class ResultViewController: UIViewController {
         }
     }
     
+    //抓取網路圖片
+    func fetchImage(url:URL?, completion:@escaping(UIImage?)->Void){
+        if let url{
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data,
+                   let image = UIImage(data: data){
+                    completion(image)
+                }else{
+                    completion(nil)
+                }
+            }.resume()
+        }
+    }
+    
     
     //更新lyricsAPI資料UI
     func updateLyrics(){
-        img.kf.setImage(with: lyricsResponse?.thumbnail?.genius)
+        fetchImage(url: lyricsResponse?.thumbnail?.genius, completion: { image in
+            self.img.image = image
+            self.playerImg.image = image
+        })
+//        img.kf.setImage(with: lyricsResponse?.thumbnail?.genius)
         titleLbl.text = lyricsResponse?.title?.capitalized
         authorLbl.text = lyricsResponse?.author
         lyricsTextView.text = lyricsResponse?.lyrics
-        playerImg.kf.setImage(with: lyricsResponse?.thumbnail?.genius)
+//        playerImg.kf.setImage(with: lyricsResponse?.thumbnail?.genius)
         playerTitleLbl.text = lyricsResponse?.title?.capitalized
         playerAuthorLbl.text = lyricsResponse?.author
     }

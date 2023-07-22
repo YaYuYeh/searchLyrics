@@ -15,7 +15,6 @@
 		8409D16628D6E2610046C5BE /* Lyrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409D16528D6E2610046C5BE /* Lyrics.swift */; };
 		8409D16828D6E28C0046C5BE /* ITunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409D16728D6E28C0046C5BE /* ITunes.swift */; };
 		8409D16A28D6E2980046C5BE /* SearchMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409D16928D6E2980046C5BE /* SearchMusicViewController.swift */; };
-		8409D16D28D6EB410046C5BE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8409D16C28D6EB410046C5BE /* Kingfisher */; };
 		841A0D9428D7080F00000352 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A0D9328D7080F00000352 /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8409D16D28D6EB410046C5BE /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +93,6 @@
 			);
 			name = searchMusic;
 			packageProductDependencies = (
-				8409D16C28D6EB410046C5BE /* Kingfisher */,
 			);
 			productName = searchMusic;
 			productReference = 8409D14E28D6DAEA0046C5BE /* searchMusic.app */;
@@ -126,7 +123,6 @@
 			);
 			mainGroup = 8409D14528D6DAEA0046C5BE;
 			packageReferences = (
-				8409D16B28D6EB410046C5BE /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 8409D14F28D6DAEA0046C5BE /* Products */;
 			projectDirPath = "";
@@ -378,25 +374,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		8409D16B28D6EB410046C5BE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		8409D16C28D6EB410046C5BE /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8409D16B28D6EB410046C5BE /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8409D14628D6DAEA0046C5BE /* Project object */;
 }
